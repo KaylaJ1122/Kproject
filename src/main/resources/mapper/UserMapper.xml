@@ -28,7 +28,7 @@
 	AND			u_id = #{username}
 	</select>
 	
-	<!-- 회원등록 -->
+	<!-- 회원가입 -->
 	<insert id="createUser" parameterType="User">
 		INSERT INTO k_user (
 			u_id,

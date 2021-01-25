@@ -32,6 +32,7 @@ public class Controller {
        
     @RequestMapping("/beforeSignup") 
    	public String beforeSignup() {
+    	
    		return "/signup";
    	}
    	

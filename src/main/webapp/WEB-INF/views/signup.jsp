@@ -57,8 +57,8 @@ var birthJ = false;
 			$.ajax({
 				async : true,
 				type : 'POST',
-				data : username, //username이라는 이름으로 username이라는 데이터를 @WebServlet("/idsearch.do")에 보내겠다
-				url : 'idcheck.do',
+				data : username, 
+				url : '/signup',
 				dataType: 'json',
 				conentType: "application/json; charset=UTF-8",
 				success : function(data){
