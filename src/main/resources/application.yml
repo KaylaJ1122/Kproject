@@ -15,7 +15,7 @@ spring:
       
       
   datasource:
-    url: jdbc:mysql://localhost:3306/jua?characterEncoding=UTF-8&serverTimezone=UTC
+    url: jdbc:mysql://13.209.90.58/kproject?characterEncoding=UTF-8&serverTimezone=UTC
     username: root  
     password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -24,7 +24,7 @@ spring:
       jdbc:
         initialize-schema: always
 server:
-  port: 8080
+  port: 80
  
 
   servlet:
