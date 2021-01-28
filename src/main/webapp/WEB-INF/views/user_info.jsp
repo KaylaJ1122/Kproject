@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-     <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-  
+ <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,14 +11,13 @@
 <body>
 	<h1>마이 페이지</h1>
 	<hr>
-         <div>
+    	<div>
            <sec:authorize access="isAuthenticated()">
               <sec:authentication property="principal" var="principal"/>
                <h2>${principal }</h2>
            </sec:authorize>
            <a href="/">돌아가기</a>
-        </div>
-
+         </div>
 
 </body>
 </html>

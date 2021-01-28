@@ -72,7 +72,6 @@ public class Controller {
    	@Secured({"ROLE_USER"})
    	@RequestMapping(value="/user/info")
    public String userInfo(Model model) {
-      
       return "/user_info";
    }
 
@@ -82,4 +81,10 @@ public class Controller {
    	public String denied(Model model) {
    		return "/denied";
    	}
+   	
+   	@RequestMapping(value="/test")
+   	public String test(Model model) {
+   		return "/board/test";
+   	}
+   		
 }

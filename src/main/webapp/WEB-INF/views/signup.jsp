@@ -46,6 +46,7 @@ var birthJ = false;
 
 // 아이디 중복확인
 	$("#username").blur(function(){
+		var username = $('#username').val();
 		if($('#username').val()==''){
 		   $('#id_check').text('아이디를 입력하세요.');
 		   $('#id_check').css('color', 'red');	
@@ -57,12 +58,11 @@ var birthJ = false;
 			$.ajax({
 				async : true,
 				type : 'POST',
-				data : username, 
-				url : '/signup',
+				data : 'username' : $('#username').val, 
+				url : 'signup.jsp',
 				dataType: 'json',
 				conentType: "application/json; charset=UTF-8",
 				success : function(data){
-
 			if(data.cnt > 0){
 				$('#id_check').text('중복된 아이디 입니다.');
 					$('#id_check').css('color', 'red');
@@ -72,9 +72,8 @@ var birthJ = false;
 						$('#id_check').text('사용가능한 아이디 입니다.');
 						$('#id_check').css('color', 'blue');
 						$("usercheck").attr("disabled", false);
-					}
-					else if(username==''){
-					$('#id_check').text('아이디를 입력해주세요.');
+					} else if(username==''){
+						$('#id_check').text('아이디를 입력해주세요.');
 						$('#id_check').css('color', 'red');
 						$('#usercheck').attr("disabled", true);
 					}else {
@@ -165,7 +164,7 @@ var birthJ = false;
 					validAll = false; 
 				} 
 			} if(validAll == true){ // 유효성 모두 통과
-				 alert('NANALAND 가족이 되어주셔 감사합니다.');
+				 alert('Kproject 가족이 되어주셔 감사합니다.');
 			} else { 
 				alert('정보를 다시 확인하세요.') 
 			}
@@ -294,37 +293,37 @@ var birthJ = false;
 		<div class="form-group">
 			<label for="id">아이디</label>
 			<input type="text" class="form-control" id="username" name="username" placeholder="ID 입력">
-			<div class="eheck_font" id="id_check"></div>
+			<div class="check_font" id="id_check"></div> <!-- 미리 div를 통해 경고문이 들어갈 자리 만들어놓는다 -->
 		</div>
 		
 		<div class="form-group">
 			<label for="password">비밀번호</label>
 			<input type="password" class="form-control" id="password" name="password" placeholder="Password"><br>
-			<div class="eheck_font" id="pw_check"></div>
+			<div class="check_font" id="pw_check"></div>
 		</div>
 		
 		<div class="form-group">
 			<label for="uName">이름</label>
 			<input type="text" class="form-control" id="uNmae" name="uName" placeholder="Name">
-			<div class="eheck_font" id="name_check"></div>
+			<div class="check_font" id="name_check"></div>
 		</div>
 		
 		<div class="form-group">
 			<label for="uBirth">생년월일</label>
 			<input type="tel" class="form-control" id="uBirth" name="uBirth" placeholder="ex)19990219"><br>
-			<div class="eheck_font" id="birth_check"></div>
+			<div class="check_font" id="birth_check"></div>
 		</div>
 		
 		<div class="form-group">
 			<label for="uEmail">이메일</label>
 			<input type="email" class="form-control" id="uEmail" name="uEmail" placeholder="E-mail">
-			<div class="eheck_font" id="email_check"></div>
+			<div class="check_font" id="email_check"></div>
 		</div>
 		
 		<div class="form-group">
 			<label for="uPhone">핸드폰번호('-'없이 번호만 입력)</label>
 			<input type="tel" class="form-control" id="uPhone" name="uPhone" placeholder="Phone Number">
-			<div class="eheck_font" id="email_check"></div>
+			<div class="check_font" id="email_check"></div>
 		</div>
 	
 		<div class="form-group">
