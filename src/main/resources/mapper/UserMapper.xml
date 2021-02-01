@@ -70,6 +70,14 @@
          UPDATE
             u_id = #{username}
     </insert>
+    
+    <!-- 관리자 -->
+    <select id="selectUser" parameterType="User">
+    SELECT 	u_id as username
+    FROM 	k_auth
+    
+    
+    </select>
 
 	
 </mapper>

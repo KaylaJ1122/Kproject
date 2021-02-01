@@ -47,4 +47,11 @@ public class UserServiceImpl implements UserService{
 		return authorities;
 	}
 
+	@Override
+	public List<User> selectUser() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
 }

@@ -14,5 +14,26 @@
 	
 </div>
 
+<div class="container">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>User</th>
+				<th>Roles</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="user" items="${username }">
+				<tr>
+					<td>${user.username }</td>
+					<td>
+						<c:forEach var="authority" items="${user.authorities }">${authority.authority }</c:forEach>
+					</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+
+</div>
 </body>
 </html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Kproject.example.mapper.ProductMapper">
+	<select id="selectProductList" resultType="Product">
+	      SELECT         p_id as pId,
+				         p_name as pName,
+				         p_price as pPrice,
+				         p_detail as pDetail,
+				         p_phote as pPhoto        
+	      FROM           k_product
+	 </select>
+	   
+	 <insert id="upload" parameterType="Product">
+	 	INSERT INTO K_product(
+	 		p_id,
+	 		p_name,
+	 		p_price,
+	 		p_detail,
+	 		p_photo
+	 	) VALUES (
+	 		#{pId},
+	 		#{pName},
+	 		#{pPrice},
+	 		#{pDetail},
+	 		#{pPhoto}
+	 	)
+	 </insert>  
+</mapper>
+

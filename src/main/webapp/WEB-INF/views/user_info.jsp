@@ -14,7 +14,7 @@
     	<div>
            <sec:authorize access="isAuthenticated()">
               <sec:authentication property="principal" var="principal"/>
-               <h2>${principal }</h2>
+               <h3>${principal }</h3>
            </sec:authorize>
            <a href="/">돌아가기</a>
          </div>

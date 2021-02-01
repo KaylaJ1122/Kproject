@@ -9,9 +9,11 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.Kproject.example.domain.User;
-
+import com.Kproject.example.domain.Product;
+import com.Kproject.example.service.ProductService;
 import com.Kproject.example.service.UserService;
 
 
@@ -21,6 +23,7 @@ public class Controller {
 	
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired UserService userservice;
+	@Autowired ProductService productservice;
 	
 	
 	
@@ -63,9 +66,13 @@ public class Controller {
    		return "/login";
    	}
    	
+
+   	
    	@Secured({"ROLE_ADMIN"})
-   	@RequestMapping(value="/admin")
+   	@RequestMapping(value="/admin", method=RequestMethod.GET)
    	public String admin(Model model) {
+   		List<User> user = userservice.selectUser();
+   		model.addAttribute("user", user);
    		return "/admin";
    	}
    	
@@ -82,9 +89,27 @@ public class Controller {
    		return "/denied";
    	}
    	
-   	@RequestMapping(value="/test")
-   	public String test(Model model) {
-   		return "/board/test";
+    // Product 시작
+   	@RequestMapping(value="/product/p_index", method=RequestMethod.GET)
+   	public String p_index() {
+   		return "/product/p_index";
    	}
+   	
+   	// product 업로드
+   	@RequestMapping(value="/product/upload", method=RequestMethod.GET)
+   	public String upload(Model model, Product product) {
+   		return "/product/upload";	
+   	}
+   	
+   	@RequestMapping(value="/product/p_index", method=RequestMethod.POST)
+   	public String uploadProcess(Model model, Product product) {
+   		productservice.upload(product);
+   		return "redirect:/product/p_index";
+   	}
+   	
+   	
+   	
+   	
+  
    		
 }
