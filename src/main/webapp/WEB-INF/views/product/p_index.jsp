@@ -27,7 +27,7 @@
 			<p>views/product/p_index.jsp</p>
 		</div>
 		
-		<a href="/product/upload" class=""btn btn-lg btn-primary"">상품등록</a>
+		<a href="/product/upload" class="btn btn-lg btn-primary">상품등록</a>
 		
 		
 		

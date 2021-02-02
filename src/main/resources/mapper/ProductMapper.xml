@@ -11,7 +11,7 @@
 	 </select>
 	   
 	 <insert id="upload" parameterType="Product">
-	 	INSERT INTO K_product(
+	 	INSERT INTO k_product(
 	 		p_id,
 	 		p_name,
 	 		p_price,
@@ -24,6 +24,7 @@
 	 		#{pDetail},
 	 		#{pPhoto}
 	 	)
+	 	
 	 </insert>  
 </mapper>
 

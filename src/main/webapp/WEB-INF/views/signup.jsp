@@ -27,6 +27,9 @@ td{
 </style>
 
 <script type="text/javascript">
+
+
+/*
 // 모든 공백 체크 정규식
 var empJ = /\s/g;
 //아이디 정규식 
@@ -58,7 +61,10 @@ var birthJ = false;
 			$.ajax({
 				async : true,
 				type : 'POST',
-				data : 'username' : $('#username').val, 
+				data : 
+					{
+						username: $('#username').val()
+					}, 
 				url : 'signup.jsp',
 				dataType: 'json',
 				conentType: "application/json; charset=UTF-8",
@@ -258,7 +264,7 @@ var birthJ = false;
 						$('#birth_check').text('생년월일을 확인해주세요 '); 
 						$('#birth_check').css('color', 'red'); 
 					} 
-			}); // 메서드 끝 /*
+			}); // 메서드 끝 
 
 			// 핸드폰번호 
 			$('#uPhone').blur(function(){ 
@@ -272,7 +278,7 @@ var birthJ = false;
 			});
 
 	});
-				
+				*/
 
 	
 		
@@ -341,5 +347,19 @@ var birthJ = false;
 		
 		</div>
 	</article>
+	
+<script type="text/javascript">
+$(document).on('focusout', '#username', function () {
+	$.ajax({
+		method: "POST",
+		url: "/aj/chkid",
+		data: { username: $('#username').val() }
+	})
+	.done(function( html ) {
+		$('#id_check').html(html);
+	});	
+});
+
+</script>
 </body>
 </html>

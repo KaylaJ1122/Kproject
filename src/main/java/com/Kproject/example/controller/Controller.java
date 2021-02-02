@@ -15,6 +15,7 @@ import com.Kproject.example.domain.User;
 import com.Kproject.example.domain.Product;
 import com.Kproject.example.service.ProductService;
 import com.Kproject.example.service.UserService;
+import com.Kproject.example.mapper.ProductMapper;
 
 
 
@@ -24,6 +25,7 @@ public class Controller {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired UserService userservice;
 	@Autowired ProductService productservice;
+	@Autowired ProductMapper productmapper;
 	
 	
 	
@@ -82,31 +84,38 @@ public class Controller {
       return "/user_info";
    }
 
-
-   	
    	@RequestMapping(value="/denied")
    	public String denied(Model model) {
    		return "/denied";
    	}
    	
-    // Product 시작
-   	@RequestMapping(value="/product/p_index", method=RequestMethod.GET)
+   	
+   	
+    // 관리자 페이지 Product 시작
+   	@RequestMapping(value="/product", method=RequestMethod.GET)
    	public String p_index() {
    		return "/product/p_index";
    	}
    	
    	// product 업로드
-   	@RequestMapping(value="/product/upload", method=RequestMethod.GET)
+   	@Secured({"ROLE_ADMIN"})
+   	@RequestMapping(value="/product/form", method=RequestMethod.GET)
    	public String upload(Model model, Product product) {
-   		return "/product/upload";	
+   		return "/product/form";	
    	}
    	
-   	@RequestMapping(value="/product/p_index", method=RequestMethod.POST)
+   	@RequestMapping(value="/product/upload", method=RequestMethod.POST)
    	public String uploadProcess(Model model, Product product) {
    		productservice.upload(product);
-   		return "redirect:/product/p_index";
+   		return "redirect:/product";
    	}
    	
+   	
+   	@RequestMapping(value="/aj/chkid")
+   	public String checkId(Model model, User user) {
+   		model.addAttribute("user", user);
+   		return "/chk";
+   	}
    	
    	
    	

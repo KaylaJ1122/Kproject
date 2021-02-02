@@ -24,7 +24,7 @@
 	<div class="container">
 		<div class="jumbotron">
 			<h1>Products Upload</h1>
-			<p>views/product/upload.jsp</p>
+			
 		</div>
 		
 		<form action="/product/upload" method="post">
